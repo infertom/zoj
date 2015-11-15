@@ -25,7 +25,11 @@ ll cal(ll a, ll m)
 {
 	ll x, y;
 	ll gcd = extend_Euclid(a, m, x, y);
-	if ( gcd == 1 ) return (x % m + m) % m;
+	if ( gcd == 1 ) {
+		x = (x % m + m) % m;
+		if ( x ) return x;
+		else return m;
+	}
 	else return -1;
 }
 
